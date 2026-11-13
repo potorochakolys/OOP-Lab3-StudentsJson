@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentsJson.App.MainPage"
+             Title="Успішність студентів"
+             BackgroundColor="White">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0,0,6,6" />
+            <Setter Property="Padding" Value="10,4" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="BackgroundColor" Value="#1F6FB2" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,*,Auto" Padding="10" RowSpacing="6">
+
+        <FlexLayout Grid.Row="0" Wrap="Wrap" AlignItems="Center">
+            <Button Text="Відкрити JSON…" Clicked="OnOpenClicked" />
+            <Button Text="Демо-файл" Clicked="OnSampleClicked" BackgroundColor="#5F6368" />
+            <Button Text="Зберегти" Clicked="OnSaveClicked" />
+            <Button Text="Зберегти як…" Clicked="OnSaveAsClicked" />
+            <Button Text="Додати" Clicked="OnAddClicked" BackgroundColor="#188038" />
+            <Button Text="Редагувати" Clicked="OnEditClicked" BackgroundColor="#E67E22" />
+            <Button Text="Видалити" Clicked="OnDeleteClicked" BackgroundColor="#C0392B" />
+            <Button Text="Про програму" Clicked="OnAboutClicked" BackgroundColor="#8E44AD" />
+            <Button Text="Вихід" Clicked="OnExitClicked" BackgroundColor="#7F8C8D" />
+        </FlexLayout>
+
+        <Label x:Name="FileLabel" Grid.Row="1" FontSize="13" TextColor="#444444" Text="Файл не відкрито" />
+
+        <!-- Пошук (LINQ) -->
+        <Border Grid.Row="2" Stroke="#D0D7DE" Padding="8">
+            <Grid ColumnDefinitions="2*,2*,*,0.7*,2.4*,0.9*,0.9*,Auto,Auto,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="8">
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="FontSize" Value="12" />
+                        <Setter Property="TextColor" Value="#555555" />
+                    </Style>
+                    <Style TargetType="Picker">
+                        <Setter Property="TextColor" Value="Black" />
+                        <Setter Property="BackgroundColor" Value="#EEF1F5" />
+                    </Style>
+                    <Style TargetType="Entry">
+                        <Setter Property="TextColor" Value="Black" />
+                        <Setter Property="BackgroundColor" Value="#EEF1F5" />
+                    </Style>
+                </Grid.Resources>
+                <Label Text="П.І.П. містить" />
+                <Label Grid.Column="1" Text="Факультет" />
+                <Label Grid.Column="2" Text="Група" />
+                <Label Grid.Column="3" Text="Курс" />
+                <Label Grid.Column="4" Text="Дисципліна" />
+                <Label Grid.Column="5" Text="Оцінка від" />
+                <Label Grid.Column="6" Text="Сер. бал від" />
+
+                <Entry x:Name="NameEntry" Grid.Row="1" Placeholder="наприклад: ко" />
+                <Picker x:Name="FacultyPicker" Grid.Row="1" Grid.Column="1" />
+                <Picker x:Name="GroupPicker" Grid.Row="1" Grid.Column="2" />
+                <Picker x:Name="CoursePicker" Grid.Row="1" Grid.Column="3" />
+                <Picker x:Name="DisciplinePicker" Grid.Row="1" Grid.Column="4" />
+                <Entry x:Name="MinGradeEntry" Grid.Row="1" Grid.Column="5" Keyboard="Numeric" />
+                <Entry x:Name="MinAverageEntry" Grid.Row="1" Grid.Column="6" Keyboard="Numeric" />
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="7">
+                    <CheckBox x:Name="DebtorsCheck" Color="#1F6FB2" />
+                    <Label Text="Лише боржники" VerticalOptions="Center" FontSize="13" TextColor="Black" />
+                </HorizontalStackLayout>
+                <Button Grid.Row="1" Grid.Column="8" Text="Пошук" Clicked="OnSearchClicked" Margin="0" />
+                <Button Grid.Row="1" Grid.Column="9" Text="Скинути" Clicked="OnResetClicked" BackgroundColor="#5F6368" Margin="0" />
+            </Grid>
+        </Border>
+
+        <!-- Заголовок таблиці -->
+        <Grid Grid.Row="3" ColumnDefinitions="2.4*,2*,2*,0.6*,0.8*,0.9*,0.9*,2.6*" BackgroundColor="#E8EAED" Padding="6,4">
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="FontSize" Value="13" />
+                </Style>
+            </Grid.Resources>
+            <Label Text="П.І.П." />
+            <Label Grid.Column="1" Text="Факультет" />
+            <Label Grid.Column="2" Text="Кафедра" />
+            <Label Grid.Column="3" Text="Курс" />
+            <Label Grid.Column="4" Text="Група" />
+            <Label Grid.Column="5" Text="Сер. бал" />
+            <Label Grid.Column="6" Text="Боргів" />
+            <Label Grid.Column="7" Text="Оцінки" />
+        </Grid>
+
+        <!-- Таблиця (Grid) -->
+        <CollectionView x:Name="StudentsView" Grid.Row="4" SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged">
+            <CollectionView.EmptyView>
+                <Label Text="Немає даних. Відкрийте JSON-файл або змініть параметри пошуку." TextColor="Gray" Margin="6" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="2.4*,2*,2*,0.6*,0.8*,0.9*,0.9*,2.6*" Padding="6,5" ColumnSpacing="4">
+                        <Grid.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="TextColor" Value="Black" />
+                                <Setter Property="FontSize" Value="13" />
+                                <Setter Property="LineBreakMode" Value="WordWrap" />
+                            </Style>
+                        </Grid.Resources>
+                        <Label Text="{Binding FullName}" />
+                        <Label Grid.Column="1" Text="{Binding Faculty}" />
+                        <Label Grid.Column="2" Text="{Binding Department}" />
+                        <Label Grid.Column="3" Text="{Binding Course}" />
+                        <Label Grid.Column="4" Text="{Binding Group}" />
+                        <Label Grid.Column="5" Text="{Binding AverageGrade}" FontAttributes="Bold" />
+                        <Label Grid.Column="6" Text="{Binding Debts}" />
+                        <Label Grid.Column="7" Text="{Binding GradesText}" FontSize="12" />
+                        <BoxView Grid.ColumnSpan="8" HeightRequest="1" Color="#E0E0E0" VerticalOptions="End" Margin="0,0,0,-5" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label x:Name="StatusLabel" Grid.Row="5" FontSize="13" TextColor="#444444" />
+    </Grid>
+</ContentPage>

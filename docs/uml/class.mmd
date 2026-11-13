@@ -1,0 +1,97 @@
+---
+title: ЛР3 (варіант 6). Діаграма класів
+---
+classDiagram
+    direction LR
+
+    class MainPage {
+        -StudentRepository _repository
+        -StudentFilter _filter
+        -Open(path)
+        -Refresh()
+        +ConfirmExitAsync() Task~bool~
+    }
+    class StudentEditPage {
+        -Student _student
+        +event Saved
+        -OnAddGrade()
+        -OnSave()
+    }
+    class AboutPage
+    class StudentRow {
+        +string FullName
+        +string AverageGrade
+        +int Debts
+        +string GradesText
+    }
+
+    class Student {
+        +Guid Id
+        +string FullName
+        +string Faculty
+        +string Department
+        +int Course
+        +string Group
+        +List~DisciplineGrade~ Grades
+        +double AverageGrade
+        +bool HasDebts
+        +Clone() Student
+    }
+    class DisciplineGrade {
+        +string Discipline
+        +int Semester
+        +int Grade
+        +string ControlType
+    }
+    class StudentValidator {
+        <<static>>
+        +PassingGrade$ int
+        +Validate(student)$ IReadOnlyList~string~
+    }
+    class StudentRepository {
+        +IReadOnlyList~Student~ Students
+        +string FilePath
+        +bool HasUnsavedChanges
+        +Load(path)
+        +Save(path)
+        +Add(student)
+        +Update(student)
+        +Remove(id) bool
+    }
+    class StudentJsonSerializer {
+        <<static>>
+        +Serialize(students)$ string
+        +Deserialize(json)$ List~Student~
+    }
+    class StudentFilter {
+        +string NamePart
+        +string Faculty
+        +string Group
+        +int? Course
+        +string Discipline
+        +int? MinGrade
+        +double? MinAverage
+        +bool OnlyDebtors
+    }
+    class StudentSearch {
+        <<static>>
+        +Search(students, filter)$ IReadOnlyList~Student~
+        +Faculties()$
+        +Groups()$
+        +Disciplines()$
+    }
+
+    MainPage --> StudentRepository
+    MainPage --> StudentFilter
+    MainPage ..> StudentSearch
+    MainPage ..> StudentEditPage : відкриває
+    MainPage ..> AboutPage : відкриває
+    MainPage ..> StudentRow
+    StudentRow --> Student
+    StudentEditPage --> Student
+    StudentEditPage ..> StudentValidator
+    StudentRepository "1" o-- "*" Student
+    Student "1" *-- "*" DisciplineGrade
+    StudentRepository ..> StudentJsonSerializer
+    StudentRepository ..> StudentValidator
+    StudentSearch ..> StudentFilter

@@ -1,0 +1,302 @@
+[
+  {
+    "id": "e85d9039-9a92-535e-90e5-15c981068b04",
+    "fullName": "Коваленко Олена Петрівна",
+    "faculty": "Комп'ютерних наук та кібернетики",
+    "department": "Інтелектуальних програмних систем",
+    "course": 2,
+    "group": "К-25",
+    "grades": [
+      {
+        "discipline": "Об'єктно-орієнтоване програмування",
+        "semester": 3,
+        "grade": 94,
+        "controlType": "Залік"
+      },
+      {
+        "discipline": "Диференціальні рівняння",
+        "semester": 3,
+        "grade": 88,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Дискретна математика",
+        "semester": 3,
+        "grade": 91,
+        "controlType": "Іспит"
+      }
+    ]
+  },
+  {
+    "id": "67e64b09-e4dc-5229-bce0-9c65362d8ff5",
+    "fullName": "Шевчук Андрій Іванович",
+    "faculty": "Комп'ютерних наук та кібернетики",
+    "department": "Інтелектуальних програмних систем",
+    "course": 2,
+    "group": "К-25",
+    "grades": [
+      {
+        "discipline": "Об'єктно-орієнтоване програмування",
+        "semester": 3,
+        "grade": 76,
+        "controlType": "Залік"
+      },
+      {
+        "discipline": "Диференціальні рівняння",
+        "semester": 3,
+        "grade": 64,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Математична логіка",
+        "semester": 3,
+        "grade": 70,
+        "controlType": "Залік"
+      }
+    ]
+  },
+  {
+    "id": "405a42c1-391e-51a8-ad84-c2942388ea63",
+    "fullName": "Бондар Марія Олегівна",
+    "faculty": "Комп'ютерних наук та кібернетики",
+    "department": "Теорії та технології програмування",
+    "course": 2,
+    "group": "К-26",
+    "grades": [
+      {
+        "discipline": "Об'єктно-орієнтоване програмування",
+        "semester": 3,
+        "grade": 98,
+        "controlType": "Залік"
+      },
+      {
+        "discipline": "Дискретна математика",
+        "semester": 3,
+        "grade": 96,
+        "controlType": "Іспит"
+      }
+    ]
+  },
+  {
+    "id": "7960ddf5-04a0-557e-aad5-030fd511922a",
+    "fullName": "Ткаченко Дмитро Сергійович",
+    "faculty": "Комп'ютерних наук та кібернетики",
+    "department": "Теорії та технології програмування",
+    "course": 3,
+    "group": "К-35",
+    "grades": [
+      {
+        "discipline": "Бази даних",
+        "semester": 5,
+        "grade": 82,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Операційні системи",
+        "semester": 5,
+        "grade": 73,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Веб-програмування",
+        "semester": 5,
+        "grade": 90,
+        "controlType": "Залік"
+      }
+    ]
+  },
+  {
+    "id": "4ebee68a-0cb8-53b2-8ea2-270b9aa96a9a",
+    "fullName": "Мельник Софія Андріївна",
+    "faculty": "Комп'ютерних наук та кібернетики",
+    "department": "Обчислювальної математики",
+    "course": 3,
+    "group": "К-35",
+    "grades": [
+      {
+        "discipline": "Бази даних",
+        "semester": 5,
+        "grade": 95,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Чисельні методи",
+        "semester": 5,
+        "grade": 89,
+        "controlType": "Іспит"
+      }
+    ]
+  },
+  {
+    "id": "ae071fc8-b4d4-574b-b7f3-24ef24afcbe0",
+    "fullName": "Кравченко Іван Миколайович",
+    "faculty": "Механіко-математичний",
+    "department": "Алгебри і комп'ютерної математики",
+    "course": 1,
+    "group": "М-11",
+    "grades": [
+      {
+        "discipline": "Математичний аналіз",
+        "semester": 1,
+        "grade": 67,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Лінійна алгебра",
+        "semester": 1,
+        "grade": 72,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Основи програмування",
+        "semester": 1,
+        "grade": 85,
+        "controlType": "Залік"
+      }
+    ]
+  },
+  {
+    "id": "a3e94b86-bbd6-5cc5-af98-df1b98cfced7",
+    "fullName": "Олійник Анна Вікторівна",
+    "faculty": "Механіко-математичний",
+    "department": "Математичного аналізу",
+    "course": 1,
+    "group": "М-11",
+    "grades": [
+      {
+        "discipline": "Математичний аналіз",
+        "semester": 1,
+        "grade": 92,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Лінійна алгебра",
+        "semester": 1,
+        "grade": 90,
+        "controlType": "Іспит"
+      }
+    ]
+  },
+  {
+    "id": "2d1cf0bc-e3a1-5190-b0c8-28678a810c8c",
+    "fullName": "Поліщук Максим Романович",
+    "faculty": "Механіко-математичний",
+    "department": "Математичного аналізу",
+    "course": 2,
+    "group": "М-21",
+    "grades": [
+      {
+        "discipline": "Диференціальні рівняння",
+        "semester": 3,
+        "grade": 61,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Теорія ймовірностей",
+        "semester": 3,
+        "grade": 58,
+        "controlType": "Іспит"
+      }
+    ]
+  },
+  {
+    "id": "8857f51a-74ed-5fbe-acc3-cac90cd51c6b",
+    "fullName": "Савченко Катерина Юріївна",
+    "faculty": "Інформаційних технологій",
+    "department": "Програмних систем і технологій",
+    "course": 2,
+    "group": "ПЗ-21",
+    "grades": [
+      {
+        "discipline": "Об'єктно-орієнтоване програмування",
+        "semester": 3,
+        "grade": 87,
+        "controlType": "Залік"
+      },
+      {
+        "discipline": "Бази даних",
+        "semester": 3,
+        "grade": 79,
+        "controlType": "Іспит"
+      }
+    ]
+  },
+  {
+    "id": "2e3b1929-427f-5de3-94e4-063810028c0e",
+    "fullName": "Руденко Богдан Олександрович",
+    "faculty": "Інформаційних технологій",
+    "department": "Програмних систем і технологій",
+    "course": 4,
+    "group": "ПЗ-41",
+    "grades": [
+      {
+        "discipline": "Проєктування програмних систем",
+        "semester": 7,
+        "grade": 97,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Веб-програмування",
+        "semester": 7,
+        "grade": 93,
+        "controlType": "Залік"
+      },
+      {
+        "discipline": "Машинне навчання",
+        "semester": 7,
+        "grade": 91,
+        "controlType": "Іспит"
+      }
+    ]
+  },
+  {
+    "id": "38170c4d-777e-5783-ace2-241bcd9df666",
+    "fullName": "Лисенко Вікторія Дмитрівна",
+    "faculty": "Інформаційних технологій",
+    "department": "Інтелектуальних технологій",
+    "course": 4,
+    "group": "ІТ-41",
+    "grades": [
+      {
+        "discipline": "Машинне навчання",
+        "semester": 7,
+        "grade": 84,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Комп'ютерний зір",
+        "semester": 7,
+        "grade": 77,
+        "controlType": "Залік"
+      }
+    ]
+  },
+  {
+    "id": "92fe356a-f26b-5ad4-96e8-348a5defa6db",
+    "fullName": "Гончаренко Тарас Васильович",
+    "faculty": "Комп'ютерних наук та кібернетики",
+    "department": "Інтелектуальних програмних систем",
+    "course": 2,
+    "group": "К-26",
+    "grades": [
+      {
+        "discipline": "Об'єктно-орієнтоване програмування",
+        "semester": 3,
+        "grade": 55,
+        "controlType": "Залік"
+      },
+      {
+        "discipline": "Дискретна математика",
+        "semester": 3,
+        "grade": 62,
+        "controlType": "Іспит"
+      },
+      {
+        "discipline": "Математична логіка",
+        "semester": 3,
+        "grade": 68,
+        "controlType": "Залік"
+      }
+    ]
+  }
+]

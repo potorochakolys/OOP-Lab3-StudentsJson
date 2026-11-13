@@ -1,0 +1,36 @@
+---
+title: ЛР3 (варіант 6). Діаграма послідовності — редагування студента і збереження
+---
+sequenceDiagram
+    autonumber
+    actor U as Користувач
+    participant M as MainPage
+    participant E as StudentEditPage
+    participant V as StudentValidator
+    participant R as StudentRepository
+    participant J as StudentJsonSerializer
+    participant F as JSON-файл
+
+    U->>M: вибирає студента, «Редагувати»
+    M->>E: new StudentEditPage(student.Clone())
+    U->>E: змінює групу, додає оцінку, «Зберегти»
+    E->>V: Validate(student)
+    alt є помилки
+        V-->>E: список помилок
+        E-->>U: показує помилки
+    else дані коректні
+        V-->>E: []
+        E->>M: Saved(student)
+        M->>R: Update(student)
+        R->>R: заміна запису, HasUnsavedChanges = true
+        R-->>M: Changed
+        M->>M: Refresh() — LINQ-пошук за поточним фільтром
+        M-->>U: оновлена таблиця
+    end
+    U->>M: «Зберегти»
+    M->>R: Save()
+    R->>J: Serialize(students)
+    J-->>R: json
+    R->>F: WriteAllText(FilePath, json)
+    R-->>M: Changed
+    M-->>U: «Збережено у файл …»
