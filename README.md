@@ -41,3 +41,7 @@ dotnet run --project src/StudentsJson.App -f net8.0-windows10.0.19041.0
 | Прецеденти | Класи | Послідовність |
 |---|---|---|
 | ![](docs/uml/use-case.png) | ![](docs/uml/class.png) | ![](docs/uml/sequence.png) |
+
+## Відео з демонстрацією
+
+[docs/video/demo.mp4](docs/video/demo.mp4): показ коду, запуск тестів і робота програми.
